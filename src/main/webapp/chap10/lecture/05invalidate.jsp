@@ -8,15 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<%@ include file="sub.jsp" %>
-
-<jsp:include page="sub.jsp">
-	<jsp:param value="senubin" name="name"/>
-</jsp:include>
-
-<jsp:forward page="sub.jsp"></jsp:forward>
-
-jsp:
+	<h1>세션 종료</h1>
+	<%
+	session.invalidate();
+	%>
+	<a href="04aboutSession.jsp">세션 정보 보기</a>
+	
 </body>
 </html>

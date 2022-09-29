@@ -1,22 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("utf-8"); %>
+<%
+	session.invalidate();
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>로그아웃</title>
 </head>
 <body>
 
-<%@ include file="sub.jsp" %>
+로그아웃 하였습니다.
 
-<jsp:include page="sub.jsp">
-	<jsp:param value="senubin" name="name"/>
-</jsp:include>
-
-<jsp:forward page="sub.jsp"></jsp:forward>
-
-jsp:
 </body>
 </html>

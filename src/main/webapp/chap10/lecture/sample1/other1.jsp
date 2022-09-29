@@ -8,15 +8,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<%@ include file="sub.jsp" %>
-
-<jsp:include page="sub.jsp">
-	<jsp:param value="senubin" name="name"/>
-</jsp:include>
-
-<jsp:forward page="sub.jsp"></jsp:forward>
-
-jsp:
+	<%
+	String name = (String) session.getAttribute("userName");
+	if (name == null){
+		name = "guest";
+	}
+	%>
+	<h1><%=name %>님이 other1페이지 사용중</h1>
+	<a href="main.jsp">메인 페이지로 이동</a>
 </body>
 </html>

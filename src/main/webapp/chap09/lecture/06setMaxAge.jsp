@@ -8,15 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<%@ include file="sub.jsp" %>
-
-<jsp:include page="sub.jsp">
-	<jsp:param value="senubin" name="name"/>
-</jsp:include>
-
-<jsp:forward page="sub.jsp"></jsp:forward>
-
-jsp:
+	<h1>30일 유지되는 쿠키 만들기</h1>
+	<a href="02readCookie.jsp">쿠키 보러 가기</a>
+	<% 
+	Cookie cookie = new Cookie("my-cookie2", "my-vlaue2");
+	cookie.setMaxAge(30 * 24 * 60 * 60);
+	response.addCookie(cookie);
+	%>
 </body>
 </html>

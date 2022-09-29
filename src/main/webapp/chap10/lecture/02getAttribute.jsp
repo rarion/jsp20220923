@@ -8,15 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<%@ include file="sub.jsp" %>
-
-<jsp:include page="sub.jsp">
-	<jsp:param value="senubin" name="name"/>
-</jsp:include>
-
-<jsp:forward page="sub.jsp"></jsp:forward>
-
-jsp:
+	<h1>세션에서 꺼낸 임의의 수</h1>
+	<h1><%=session.getAttribute("random number") %></h1>
 </body>
 </html>
