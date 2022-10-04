@@ -52,6 +52,7 @@
 	<p>${ people.people2[0].age }</p>
 	<p>${ people.people2[1].name }</p>
 	<p>${ people.people2[1].age }</p>
+
 	
 </body>
 </html>

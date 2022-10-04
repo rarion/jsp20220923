@@ -22,22 +22,49 @@
 	Book b3 = new Book("인간조건", 4000);
 	
 	books2.put("Dale Carnegie", b1);
-	books2.put("Dale Carnegie", b2);
-	books2.put("Andre Malraux", b3);
+	books2.put("Andre Malraux", b2);
 	
 	request.setAttribute("books2", books2);
 	
 	Map<String, List<Book>> book = new HashMap<>();
 	
+	List<Book> books3 = new ArrayList<>();
+	List<Book> books4 = new ArrayList<>();
 	
-	
-	
+	Book book1 = new Book();
+	Book book2 = new Book();
 
+	
+	/* 국내저자 외국저자 */
+	books3.add(book1);
+	books3.add(book2);
+	
+	book1.setTitle("흐르는 강물처럼");
+	book1.setPrice(7000);
+	book2.setTitle("작고 가벼운 우울");
+	book2.setPrice(3500);
+	books3.add(new Book("전혜린 에세이", 8000));
+	
+	books4.add(b1);
+	books4.add(b2);
+	books4.add(b3);
+	
+	book.put("domestic", books3);
+	book.put("overseas", books4);
+	
+	request.setAttribute("book", book);
+	
+	
 	%>
-
-	<form action="">
+	
+	<p>${book.domestic[0].title}</p>
+	<p>${book.domestic[0].price}</p>
+	<p>${book.overseas[2].title}</p>
+	<p>${book.overseas[2].price}</p>
+	<p>${books2["Dale Carnegie"].title }</p>
+<!-- 	<form action="">
 		
 	</form>
-
+ -->
 </body>
 </html>
