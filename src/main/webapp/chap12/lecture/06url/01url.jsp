@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
@@ -11,35 +12,25 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
-	
-	<c:choose>
-		<c:when test="${param.country == 'domestic' }">
-			<form action="domestic.jsp" >
-				장르 : <select name="genre">
-					<option value="essay">에세이</option>
-					<option value="novel">소설</option>
-				</select>
-				<input type="submit" value="선택">
-			</form>
-		</c:when>
-		<c:when test="${param.country == 'foreign' }">
-			<form action="overseas.jsp">
-				장르 : <select name="genre">
-					<option value="self-improvement">자기계발</option>
-					<option value="novel">소설</option>
-				</select>
-				<input type="submit" value="선택">
-			</form>
-		</c:when>
-		<c:otherwise>
-			분류가 선택되지 않았습니다.
-		</c:otherwise>
-	</c:choose>
-	
-	<br>
-	<a href="bookSample.jsp">이전 선택창으로 돌아가기</a>
+	<h3>url : url을 만들 때 사용하는 tag</h3>
 
-
+	<%-- value 속성에 명시된 url 만들고 출력 --%>
+	<c:url value="02url.jsp">
+	</c:url>
+	
+	<hr>
+	<%-- request 파라미터(쿼리스트링) 생성시 유용 --%>
+	<c:url value="02url.jsp?name=donald&age=90"></c:url> <br>
+	<c:url value="02url.jsp">
+		<c:param name="name">donald</c:param>
+		<c:param name="age">90</c:param>
+	</c:url> <br>
+	<c:url value="02url.jsp?name=홍길동"></c:url> <br>
+	<c:url value="02url.jsp">
+		<c:param name="name">홍길동</c:param>
+	</c:url> <br>	
+	
+	
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 </html>

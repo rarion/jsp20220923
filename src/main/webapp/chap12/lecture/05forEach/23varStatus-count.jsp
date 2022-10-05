@@ -11,34 +11,19 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
-	
-	<c:choose>
-		<c:when test="${param.country == 'domestic' }">
-			<form action="domestic.jsp" >
-				장르 : <select name="genre">
-					<option value="essay">에세이</option>
-					<option value="novel">소설</option>
-				</select>
-				<input type="submit" value="선택">
-			</form>
-		</c:when>
-		<c:when test="${param.country == 'foreign' }">
-			<form action="overseas.jsp">
-				장르 : <select name="genre">
-					<option value="self-improvement">자기계발</option>
-					<option value="novel">소설</option>
-				</select>
-				<input type="submit" value="선택">
-			</form>
-		</c:when>
-		<c:otherwise>
-			분류가 선택되지 않았습니다.
-		</c:otherwise>
-	</c:choose>
-	
-	<br>
-	<a href="bookSample.jsp">이전 선택창으로 돌아가기</a>
+<%
+pageContext.setAttribute("foodList", new String[] {"cake", "pizza", "coffee", "milk"});
+%>
 
+<%--
+<p>1 : pizza</p>
+<p>2 : coffee</p>
+<p>3 : milk</p>
+ --%>
+
+<c:forEach items="${foodList }" var="food" begin="1" varStatus="st">
+	<p>${st.count } : ${food }</p>
+</c:forEach>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
