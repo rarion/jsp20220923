@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags/chap16" %>
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
@@ -14,16 +14,12 @@
 </head>
 <body>
 
-<my:tag4></my:tag4>
-
-<hr>
-	
-<my:tag5 att="value1" btt="hello" />
-	
-<hr>
-
-<my:tag5 att="value999" btt="hi"/>
-	
+	<my:tag12>
+		<%-- 태그 내에 몸통(body) 작성 가능 --%>
+		<h2>Lorem ipsum dolor.</h2>
+	</my:tag12>
+	<%-- <c:if test="true">
+	</c:if> --%>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 </html>
