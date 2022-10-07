@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,23 +18,26 @@ import jsp20220923.chap07.Book;
 /**
  * Servlet implementation class books
  */
-@WebServlet("/books")
-public class books extends HttpServlet {
+@WebServlet("/Books")
+public class Books extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public books() {
+    public Books() {
         super();
         // TODO Auto-generated constructor stub
     }
+    
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		/* Map<String, List<List<Book>>> map = new HashMap<>(); */
+		
 		List<List<Book>> bookList = new ArrayList<List<Book>>(); 
 		List<Book> foreignBooks = List.of(new Book("카네기 처세술", 4000, "Dale Carnegie " ),new Book("카네기 인간관계론", 4000, "Dale Carnegie " ),
 				new Book("소설 프로이트", 3900, "어빙 스톤") , new Book("인간조건", 3000, "Andre Malraux"));
@@ -46,6 +50,7 @@ public class books extends HttpServlet {
 		 */
 		request.setAttribute("domesticBook", domesticBook);
 		request.setAttribute("foreginBooks", foreignBooks);
+		request.setAttribute("bookList", bookList);
 		
 		String path = "/WEB-INF/view/chap17/bookPage.jsp";
 		
@@ -55,16 +60,14 @@ public class books extends HttpServlet {
 		
 		
 				
-		
-		
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
 	}
 
 }

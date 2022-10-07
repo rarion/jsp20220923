@@ -1,28 +1,23 @@
 package servlet.chap17;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jsp20220923.chap07.Book;
-
 /**
- * Servlet implementation class Servlet4
+ * Servlet implementation class servlet09
  */
-@WebServlet("/Servlet4")
-public class Servlet04 extends HttpServlet {
+@WebServlet("/servlet09")
+public class Servlet09 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Servlet04() {
+    public Servlet09() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,28 +26,24 @@ public class Servlet04 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("BOOk");
 		
-		Map<String, Book> books2 = new HashMap<>();
-		Book b1 = new Book("카네기 처세술", 5000);
-		Book b2 = new Book("카네기 인간관계론", 6000);
-		Book b3 = new Book("인간조건", 4000);
+		String path  = "WEB-INF/view/chap17/view05.jsp";
+		request.getRequestDispatcher(path).forward(request, response);
 		
-		books2.put("Dale Carnegie", b1);
-		books2.put("Andre Malraux", b3);
-		
-		request.setAttribute("books2", books2);
-		
-		String jspPath = "/WEB-INF/view/chap17/view03.jsp"; 
-		request.getRequestDispatcher(jspPath).forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		System.out.println("POST방식으로 와서 이 메소드가 일함");
+		
+		
+		String name = request.getParameter("name");
+		String ad = request.getParameter("address");
+		
+		System.out.println("이름: "+name);
+		System.out.println("주소: "+ad);
 	}
 
 }
