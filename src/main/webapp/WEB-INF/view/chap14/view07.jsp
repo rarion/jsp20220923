@@ -11,6 +11,10 @@
 </head>
 <body>
 	<h1>고객 목록</h1>
+	<div>
+		${sessionScope.message }
+		<c:remove var="message" scope="session"/>
+	</div>
 	<a href="${pageContext.request.contextPath }/Servlet28">새 고객 입력하러 가기</a>
 	
 	<form action="">
@@ -22,6 +26,7 @@
 			<tr>
 				<th>ID</th>
 				<th>이름</th>
+				<th>ContactName</th>
 				<th>주소</th>
 				<th>도시</th>
 				<th>나라</th>
@@ -31,7 +36,15 @@
 			<c:forEach items="${customers }" var="customer">
 				<tr>
 					<td>${customer.id }</td>
-					<td>${customer.name }</td>
+					<td>
+						<c:url value="/Servlet30" var="updateUrl">
+							<c:param name="id" value="${customer.id}"></c:param>
+						</c:url>
+						<a href="${updateUrl }">
+							${customer.name }
+						</a>
+					</td>
+					<td>${customer.contactName }</td>
 					<td>${customer.address }</td>
 					<td>${customer.city }</td>
 					<td>${customer.country }</td>

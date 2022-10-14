@@ -4,6 +4,15 @@ public class Employee {
 	
 	private String firstName;
 	private String lastName;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	private int id;
 	
 	public String getFirstName() {
 		return firstName;

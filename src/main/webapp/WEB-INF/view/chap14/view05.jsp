@@ -14,7 +14,7 @@
 	<a href="${pageContext.request.contextPath }/Servlet27">새 직원 입력하러 가기</a>
 	
 	<form action="">
-		<input type="text" name="keyword" placeholder="이름을 입력하세요" value="${param.keyword}">
+			<input type="text" name="keyword" placeholder="이름을 입력하세요" value="${param.keyword }">
 		<button class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
 <!-- 		<input type="submit" value="검색"> -->
 	</form>
