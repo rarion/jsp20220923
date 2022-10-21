@@ -1,0 +1,2 @@
+-- table명, 컬럼명 작성 관습
+-- 대소문자 구분 X, snake_lower_case(your_car_name)
