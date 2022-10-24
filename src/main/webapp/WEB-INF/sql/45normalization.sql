@@ -1,6 +1,14 @@
--- 한 컬럼이 다른 컬럼에 종속되어 있을 때 테이블을 만들어라
+-- 한 컬럼이 다른 컬럼에 종속되어 있을 때 테이블을 만들기
 
 USE w3schools;
 SELECT * FROM Products;
--- 상품명, 유닛, 가격, 카테고리명, 카테고리 설명, 공급자명, 공급자 주소
+
+CREATE TABLE MyProducts AS
+SELECT p.ProductName,
+ p.Unit,
+ p.Price,
+ c.CategoryName,
+ c.Description
+FROM Products p INNER JOIN Categories c 
+ON p.CategoryId = c.CategoryId;
 
